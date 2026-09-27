@@ -1,0 +1,342 @@
+import { useState, useEffect } from 'react'
+import Modal from '../components/Modal'
+import './Home.css'
+
+export default function Home() {
+  // Modal state: null | 'about' | 'skills' | 'services' | 'blogs'
+  const [modal, setModal] = useState(null)
+
+  const openModal  = (name) => setModal(name)
+  const closeModal = () => setModal(null)
+
+  // ESC để đóng modal
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setModal(null) }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
+  }, [])
+
+  // Khi có modal mở, chặn scroll body (tuỳ chọn)
+  useEffect(() => {
+    document.body.style.overflow = modal ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [modal])
+
+  const scrollToCV = () => {
+    document.getElementById('cv-section')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  return (
+    <>
+      {/* ============ HERO ============ */}
+      <section className="hero-section">
+        <div className="image" data-aos="zoom-in-right" data-aos-duration="2000">
+          <img src="/ht1.png" alt="Erwin Dinh Avatar" />
+        </div>
+
+        <div className="content">
+          <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+            Hey I'm <span>Erwin Dinh</span>
+          </h1>
+
+          <div className="typewriter" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">
+            I'm a <span>Analog IC Design</span>
+          </div>
+
+          <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="500">
+            Fourth-year Computer Engineering student at University of Science and Technology – Da Nang,
+            currently working as an <b>Analog IC Design Intern at Mixel</b>. Strong passion for analog
+            semiconductor circuit design with hands-on experience in Cadence Virtuoso for schematic and
+            layout, using advanced technology nodes (TSMC 65nm, GPDK 90nm, Skywater 130nm).
+          </p>
+
+          <div className="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="600">
+            <a href="https://github.com/thuankythuatmaytinhk22-stack" target="_blank" rel="noreferrer">
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">
+              <i className="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="mailto:thuankythuatmaytinhk22@gmail.com">
+              <i className="fa-solid fa-envelope"></i>
+            </a>
+            <a href="tel:84855894446">
+              <i className="fa-solid fa-phone"></i>
+            </a>
+          </div>
+
+          <div className="action-buttons" data-aos="zoom-out-left" data-aos-duration="1000" data-aos-delay="700">
+            <button onClick={scrollToCV}>📄 View Full CV</button>
+            <button onClick={() => openModal('about')}>About Me</button>
+            <button onClick={() => openModal('skills')}>Skills</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ CV SECTION ============ */}
+      <section className="cv-section" id="cv-section">
+        <div className="cv-container">
+
+          <div className="contact-info" data-aos="fade-up">
+            <div><i className="fa-solid fa-phone"></i> 84-855-894-446</div>
+            <div><i className="fa-solid fa-envelope"></i> thuankythuatmaytinhk22@gmail.com</div>
+            <div><i className="fa-brands fa-linkedin"></i> linkedin.com/in/yourprofile</div>
+            <div><i className="fa-brands fa-github"></i> github.com/thuankythuatmaytinhk22-stack</div>
+          </div>
+
+          <h2 className="cv-section-title" data-aos="fade-right">
+            <i className="fa-solid fa-user"></i> Summary
+          </h2>
+          <div className="summary-box" data-aos="fade-up">
+            Fourth-year Computer Engineering student at University of Science and Technology - Da Nang with strong
+            passion for analog semiconductor circuit design. Solid theoretical foundation combined with hands-on
+            project experience. Seeking an Analog IC Design Intern position to apply academic knowledge in real-world
+            applications, gain professional experience, and develop skills toward becoming an IC design engineer.
+          </div>
+
+          <h2 className="cv-section-title" data-aos="fade-right">
+            <i className="fa-solid fa-trophy"></i> Achievements
+          </h2>
+          <div data-aos="fade-up" style={{ marginBottom: 30 }}>
+            <div className="achievement-item">
+              <div className="achievement-icon">🥉</div>
+              <div className="achievement-content">
+                <h4>Bronze Medal - Provincial Physics Olympiad</h4>
+                <p>Dak Lak Province • 2021</p>
+              </div>
+            </div>
+            <div className="achievement-item">
+              <div className="achievement-icon">🏅</div>
+              <div className="achievement-content">
+                <h4>Consolation Prize - Provincial Excellent Student Competition</h4>
+                <p>Dak Lak Province • 2022</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 className="cv-section-title" data-aos="fade-right">
+            <i className="fa-solid fa-briefcase"></i> Experience
+          </h2>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">IC Design Lab Member</div>
+            <div className="cv-card-subtitle">University of Science and Technology</div>
+            <div className="cv-card-date">Sep 2025 - Present • Da Nang, Vietnam</div>
+            <div className="cv-card-desc">
+              <ul>
+                <li>Conduct analog IC design using <b>Cadence Virtuoso</b> tools</li>
+                <li>Work on schematic design and simulation</li>
+                <li>Collaborate on circuit design projects using <b>Skywater 130nm, GPDK 90nm, TSMC 65nm</b> technology</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">Physics Tutor</div>
+            <div className="cv-card-subtitle">Self-employed</div>
+            <div className="cv-card-date">2022 - Present • Da Nang, Vietnam</div>
+            <div className="cv-card-desc">
+              <ul>
+                <li>Delivered one-on-one Physics tutoring with clear and structured explanations</li>
+                <li>Prepared lesson plans, exercises, and customized study materials based on student needs</li>
+                <li>Improved presentation and communication skills by explaining complex concepts simply</li>
+                <li>Managed schedule effectively while balancing tutoring work with full-time university studies</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 className="cv-section-title" data-aos="fade-right">
+            <i className="fa-solid fa-microchip"></i> Projects
+          </h2>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">Two-Stage CMOS Op-Amp Design</div>
+            <div className="cv-card-date">Jan 2026 - Mar 2026</div>
+            <div className="cv-card-desc">
+              <p><b>Tool:</b> Cadence Virtuoso | <b>Technology:</b> TSMC 65nm</p>
+              <ul>
+                <li>Applied differential pair for input stage, current mirror as active load</li>
+                <li>Designed two-stage CMOS operational amplifier achieving open-loop gain of <b>50dB</b></li>
+                <li>Performed schematic design, AC/DC analysis, transient simulation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">9-Stage Ring Oscillator</div>
+            <div className="cv-card-date">Nov 2025 - Dec 2025</div>
+            <div className="cv-card-desc">
+              <p><b>Tool:</b> Cadence Virtuoso | <b>Technology:</b> TSMC 65nm</p>
+              <ul>
+                <li>Applied CMOS inverter as delay stage, negative feedback loop for oscillation</li>
+                <li>Designed CMOS ring oscillator with 9 inverter stages achieving <b>20MHz</b> oscillation frequency</li>
+                <li>Analyzed duty cycle stability and transient response</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">50W OCL Audio Power Amplifier</div>
+            <div className="cv-card-date">Sep 2024 - Dec 2024</div>
+            <div className="cv-card-desc">
+              <p><b>Tool:</b> Proteus (Schematic & PCB Layout) | <b>Topology:</b> OCL, differential input stage</p>
+              <ul>
+                <li>Designed 50W/8Ω amplifier with bandwidth <b>200Hz - 15kHz</b></li>
+                <li>Performed hand calculations for biasing, gain, and power dissipation</li>
+                <li>Designed single-sided PCB layout, assembled prototype, and verified performance</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">Traffic Management System (Scrum Master)</div>
+            <div className="cv-card-date">Jan 2025 - Apr 2025</div>
+            <div className="cv-card-desc">
+              <ul>
+                <li>Served as Scrum Master for 4-member team</li>
+                <li>Planned and divided tasks using Word, assigned clear ownership for each member</li>
+                <li>Tracked progress weekly, followed up on deadlines, resolved blockers</li>
+                <li>Communicated between AI team (YOLO vehicle counting) and web team for smooth data integration</li>
+                <li>Reported project status to supervisor and presented final demo</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">Smart Water Sampling System (Scrum Master)</div>
+            <div className="cv-card-date">Sep 2025 - Dec 2025</div>
+            <div className="cv-card-desc">
+              <ul>
+                <li>Acted as Scrum Master for 4-member IoT team</li>
+                <li>Coordinated between Hardware team (ESP32, sensors, relays) and Software team (web dashboard, database, API)</li>
+                <li>Created and managed task lists in Word, assigned roles and tracked progress weekly</li>
+                <li>Facilitated communication to resolve integration issues between hardware and software</li>
+                <li>Held weekly meetings, reviewed progress, adjusted deadlines, solved team conflicts</li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 className="cv-section-title" data-aos="fade-right">
+            <i className="fa-solid fa-graduation-cap"></i> Education
+          </h2>
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">B.E. in Computer Engineering</div>
+            <div className="cv-card-subtitle">University of Science and Technology, Da Nang</div>
+            <div className="cv-card-date">Expected May 2027 • GPA: 3.28/4.0</div>
+            <div className="cv-card-desc">
+              <p><b>Relevant Coursework:</b> Circuit Theory, Electronic Circuit Techniques, HDL & Programmable Logic</p>
+            </div>
+          </div>
+
+          <h2 className="cv-section-title" data-aos="fade-right">
+            <i className="fa-solid fa-code"></i> Skills
+          </h2>
+          <div className="skills-grid">
+            <div className="skill-item" data-aos="fade-up">
+              <h4><i className="fa-solid fa-microchip"></i> Analog Design Tools</h4>
+              <p>Cadence Virtuoso, LTspice, Proteus</p>
+            </div>
+            <div className="skill-item" data-aos="fade-up" data-aos-delay="100">
+              <h4><i className="fa-solid fa-code"></i> Programming</h4>
+              <p>C++, Verilog</p>
+            </div>
+            <div className="skill-item" data-aos="fade-up" data-aos-delay="200">
+              <h4><i className="fa-solid fa-layer-group"></i> PCB Design</h4>
+              <p>Proteus PCB Layout</p>
+            </div>
+            <div className="skill-item" data-aos="fade-up" data-aos-delay="300">
+              <h4><i className="fa-solid fa-users"></i> Soft Skills</h4>
+              <p>Team leadership (Scrum Master), Task management, Cross-functional communication, Problem solving, Presentation & reporting, Technical documentation</p>
+            </div>
+            <div className="skill-item" data-aos="fade-up" data-aos-delay="400">
+              <h4><i className="fa-solid fa-language"></i> Languages</h4>
+              <p>Vietnamese (native), English (conversational & technical reading)</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ============ MODALS ============ */}
+      {modal === 'about' && (
+        <Modal title="About Me" onClose={closeModal}>
+          <p>
+            Hi, I'm <b>Erwin Dinh</b>, a fourth-year Computer Engineering student at the University of Science and
+            Technology – The University of Danang (DUT), currently working as an <b>Analog IC Design Intern at
+            Mixel</b>. I'm passionate about analog semiconductor circuit design, driven by my love for physics and
+            my curiosity about how circuits work at the transistor level.
+            <br /><br />
+            My focus is on <b>schematic design and layout</b> using Cadence Virtuoso, working with advanced
+            technology nodes like TSMC 65nm, GPDK 90nm, and Skywater 130nm. My goal is to become a professional
+            Analog IC Design Engineer, capable of building complete analog systems from concept to silicon.
+            <br /><br />
+            I'm always eager to learn, explore new technologies, and solve challenging problems in the
+            semiconductor field.
+          </p>
+        </Modal>
+      )}
+
+      {modal === 'skills' && (
+        <Modal title="Skills" onClose={closeModal}>
+          <p>
+            <b>Analog Design Tools:</b> Cadence Virtuoso, LTspice, Proteus<br /><br />
+            <b>Programming:</b> C++, Verilog<br /><br />
+            <b>PCB Design:</b> Proteus PCB Layout<br /><br />
+            <b>Soft Skills:</b> Team leadership (Scrum Master), Task management & progress tracking, Cross-functional
+            communication, Team coordination, Problem solving, Time management, Presentation & reporting, Technical
+            documentation<br /><br />
+            <b>Languages:</b> Vietnamese (native), English (conversational & technical reading)
+          </p>
+        </Modal>
+      )}
+
+      {modal === 'services' && (
+        <Modal title="Services" onClose={closeModal}>
+          <p>
+            I am capable of designing analog IC schematics & layouts using Cadence Virtuoso, simulating circuits
+            with LTspice, designing PCBs with Proteus, and building web applications.
+          </p>
+        </Modal>
+      )}
+
+      {modal === 'blogs' && (
+        <Modal title="My Blogs" onClose={closeModal}>
+          <div className="blog-container">
+            <div className="blog-post">
+              <h3>1: Why I Chose Computer Engineering as My Career Path</h3>
+              <p>
+                <b>Introduction:</b><br />
+                I'm Erwin Dinh, a Computer Engineering student at the University of Science and Technology –
+                The University of Danang (DUT). Since high school, I've been passionate about understanding how
+                both software and hardware work together.
+                <br /><br />
+                <b>My Journey:</b><br />
+                I started with basic programming in C++ and web development, then moved into analog circuit design
+                using Proteus and LTspice. Recently, I've been working with Cadence Virtuoso on TSMC 65nm
+                technology.
+                <br /><br />
+                <b>The Future:</b><br />
+                My goal is to become an Analog IC Design Engineer, contributing to fields like chip design and
+                embedded systems.
+              </p>
+            </div>
+
+            <div className="blog-post">
+              <h3>2: My Journey into Analog IC Design</h3>
+              <p>
+                Analog IC design is a beautiful mix of physics and engineering. In this blog, I'll share my
+                experience learning Cadence Virtuoso, from basic schematic entry to complex simulations.
+                <br /><br />
+                <b>Key takeaways:</b><br />
+                • Master the fundamentals: small-signal models, biasing, frequency response<br />
+                • Practice with real projects: Op-Amp, Ring Oscillator, Current Mirrors<br />
+                • Learn the tools deeply: Cadence Virtuoso, LTspice<br />
+                • Never stop learning.
+              </p>
+            </div>
+          </div>
+        </Modal>
+      )}
+    </>
+  )
+}

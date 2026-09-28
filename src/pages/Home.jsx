@@ -32,7 +32,11 @@ export default function Home() {
       {/* ============ HERO ============ */}
       <section className="hero-section">
         <div className="image" data-aos="zoom-in-right" data-aos-duration="2000">
-          <img src="/ht1.jpg" alt="Erwin Dinh Avatar" />
+          <img
+            src="/ht1.jpg"
+            alt="Erwin Dinh Avatar"
+            className="avatar-img"
+          />
         </div>
 
         <div className="content">
@@ -251,8 +255,7 @@ export default function Home() {
             <div className="cv-card-desc">
               <p>
                 <b>Relevant Coursework:</b> Circuit Theory, Electronic Circuit Techniques,
-                HDL & Programmable Logic, <b>IC Design (Thiết kế vi mạch)</b>,
-                <b>PBL4 – IC Design (Thiết kế vi mạch)</b>
+                HDL & Programmable Logic, IC Design, PBL4 – IC Design
               </p>
             </div>
           </div>

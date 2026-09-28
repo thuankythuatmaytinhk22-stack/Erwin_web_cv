@@ -3,20 +3,17 @@ import Modal from '../components/Modal'
 import './Home.css'
 
 export default function Home() {
-  // Modal state: null | 'about' | 'skills' | 'services' | 'blogs'
   const [modal, setModal] = useState(null)
 
   const openModal  = (name) => setModal(name)
   const closeModal = () => setModal(null)
 
-  // ESC để đóng modal
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') setModal(null) }
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   }, [])
 
-  // Khi có modal mở, chặn scroll body
   useEffect(() => {
     document.body.style.overflow = modal ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -26,7 +23,6 @@ export default function Home() {
     document.getElementById('cv-section')?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // ===== Thông tin liên hệ (dùng chung) =====
   const GITHUB_URL   = 'https://github.com/thuankythuatmaytinhk22-stack'
   const LINKEDIN_URL = 'https://www.linkedin.com/in/thu%E1%BA%ADn-%C4%91inh-ho%C3%A0ng-216bb4358/'
   const EMAIL        = 'thuankythuatmaytinhk22@gmail.com'
@@ -82,9 +78,7 @@ export default function Home() {
           <div className="contact-info" data-aos="fade-up">
             <div>
               <i className="fa-solid fa-envelope"></i>
-              <a href={`mailto:${EMAIL}`} style={{ color: 'inherit', textDecoration: 'none' }}>
-                {EMAIL}
-              </a>
+              <a href={`mailto:${EMAIL}`} style={{ color: 'inherit', textDecoration: 'none' }}>{EMAIL}</a>
             </div>
             <div>
               <i className="fa-brands fa-linkedin"></i>
@@ -131,7 +125,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ============ EXPERIENCE ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-briefcase"></i> Experience
           </h2>
@@ -177,7 +170,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ============ PROJECTS ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-microchip"></i> Projects
           </h2>
@@ -249,7 +241,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ============ EDUCATION ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-graduation-cap"></i> Education
           </h2>
@@ -266,7 +257,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ============ SKILLS ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-code"></i> Skills
           </h2>

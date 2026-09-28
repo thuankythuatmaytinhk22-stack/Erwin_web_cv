@@ -16,7 +16,7 @@ export default function Home() {
     return () => document.removeEventListener('keydown', onKey)
   }, [])
 
-  // Khi có modal mở, chặn scroll body (tuỳ chọn)
+  // Khi có modal mở, chặn scroll body
   useEffect(() => {
     document.body.style.overflow = modal ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -26,12 +26,17 @@ export default function Home() {
     document.getElementById('cv-section')?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  // ===== Thông tin liên hệ (dùng chung) =====
+  const GITHUB_URL   = 'https://github.com/thuankythuatmaytinhk22-stack'
+  const LINKEDIN_URL = 'https://www.linkedin.com/in/thu%E1%BA%ADn-%C4%91inh-ho%C3%A0ng-216bb4358/'
+  const EMAIL        = 'thuankythuatmaytinhk22@gmail.com'
+
   return (
     <>
       {/* ============ HERO ============ */}
       <section className="hero-section">
         <div className="image" data-aos="zoom-in-right" data-aos-duration="2000">
-          <img src="/ht1.png" alt="Erwin Dinh Avatar" />
+          <img src="/ht1.jpg" alt="Erwin Dinh Avatar" />
         </div>
 
         <div className="content">
@@ -44,24 +49,21 @@ export default function Home() {
           </div>
 
           <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="500">
-            Fourth-year Computer Engineering student at University of Science and Technology – Da Nang,
+            Fifth-year Computer Engineering student at University of Science and Technology – Da Nang,
             currently working as an <b>Analog IC Design Intern at Mixel</b>. Strong passion for analog
-            semiconductor circuit design with hands-on experience in Cadence Virtuoso for schematic and
-            layout, using advanced technology nodes (TSMC 65nm, GPDK 90nm, Skywater 130nm).
+            semiconductor circuit design with hands-on experience in <b>Cadence Virtuoso</b> and
+            <b>Cadence Pyxis</b> for schematic and layout design.
           </p>
 
           <div className="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="600">
-            <a href="https://github.com/thuankythuatmaytinhk22-stack" target="_blank" rel="noreferrer">
+            <a href={GITHUB_URL} target="_blank" rel="noreferrer" title="GitHub">
               <i className="fa-brands fa-github"></i>
             </a>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">
+            <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" title="LinkedIn">
               <i className="fa-brands fa-linkedin"></i>
             </a>
-            <a href="mailto:thuankythuatmaytinhk22@gmail.com">
+            <a href={`mailto:${EMAIL}`} title="Email">
               <i className="fa-solid fa-envelope"></i>
-            </a>
-            <a href="tel:84855894446">
-              <i className="fa-solid fa-phone"></i>
             </a>
           </div>
 
@@ -78,20 +80,35 @@ export default function Home() {
         <div className="cv-container">
 
           <div className="contact-info" data-aos="fade-up">
-            <div><i className="fa-solid fa-phone"></i> 84-855-894-446</div>
-            <div><i className="fa-solid fa-envelope"></i> thuankythuatmaytinhk22@gmail.com</div>
-            <div><i className="fa-brands fa-linkedin"></i> linkedin.com/in/yourprofile</div>
-            <div><i className="fa-brands fa-github"></i> github.com/thuankythuatmaytinhk22-stack</div>
+            <div>
+              <i className="fa-solid fa-envelope"></i>
+              <a href={`mailto:${EMAIL}`} style={{ color: 'inherit', textDecoration: 'none' }}>
+                {EMAIL}
+              </a>
+            </div>
+            <div>
+              <i className="fa-brands fa-linkedin"></i>
+              <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                linkedin.com/in/thuận-đinh-hoàng
+              </a>
+            </div>
+            <div>
+              <i className="fa-brands fa-github"></i>
+              <a href={GITHUB_URL} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+                github.com/thuankythuatmaytinhk22-stack
+              </a>
+            </div>
           </div>
 
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-user"></i> Summary
           </h2>
           <div className="summary-box" data-aos="fade-up">
-            Fourth-year Computer Engineering student at University of Science and Technology - Da Nang with strong
+            Fifth-year Computer Engineering student at University of Science and Technology – Da Nang with strong
             passion for analog semiconductor circuit design. Solid theoretical foundation combined with hands-on
-            project experience. Seeking an Analog IC Design Intern position to apply academic knowledge in real-world
-            applications, gain professional experience, and develop skills toward becoming an IC design engineer.
+            project experience in <b>Cadence Virtuoso</b> and <b>Cadence Pyxis</b>. Currently interning as an
+            Analog IC Design Intern at Mixel, aiming to become a professional Analog IC Design Engineer capable
+            of building complete analog systems from concept to silicon.
           </div>
 
           <h2 className="cv-section-title" data-aos="fade-right">
@@ -114,9 +131,24 @@ export default function Home() {
             </div>
           </div>
 
+          {/* ============ EXPERIENCE ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-briefcase"></i> Experience
           </h2>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">Analog IC Design Intern</div>
+            <div className="cv-card-subtitle">Mixel</div>
+            <div className="cv-card-date">Jun 2026 - Present • Da Nang, Vietnam</div>
+            <div className="cv-card-desc">
+              <ul>
+                <li>Participated in analog IC design projects using <b>Cadence Virtuoso</b> and <b>Cadence Pyxis</b></li>
+                <li>Performed schematic design, layout design, and circuit simulation under mentor guidance</li>
+                <li>Gained hands-on experience with industrial design flows from schematic to layout verification</li>
+                <li>Collaborated with senior engineers to review and optimize circuit performance</li>
+              </ul>
+            </div>
+          </div>
 
           <div className="cv-card" data-aos="fade-up">
             <div className="cv-card-title">IC Design Lab Member</div>
@@ -124,9 +156,9 @@ export default function Home() {
             <div className="cv-card-date">Sep 2025 - Present • Da Nang, Vietnam</div>
             <div className="cv-card-desc">
               <ul>
-                <li>Conduct analog IC design using <b>Cadence Virtuoso</b> tools</li>
-                <li>Work on schematic design and simulation</li>
-                <li>Collaborate on circuit design projects using <b>Skywater 130nm, GPDK 90nm, TSMC 65nm</b> technology</li>
+                <li>Conduct analog IC design using <b>Cadence Virtuoso</b> and <b>Cadence Pyxis</b></li>
+                <li>Work on schematic design, layout design, and simulation</li>
+                <li>Collaborate on circuit design projects with other lab members</li>
               </ul>
             </div>
           </div>
@@ -145,15 +177,44 @@ export default function Home() {
             </div>
           </div>
 
+          {/* ============ PROJECTS ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-microchip"></i> Projects
           </h2>
 
           <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">CS Source Degeneration – Schematic & Layout</div>
+            <div className="cv-card-date">2026</div>
+            <div className="cv-card-desc">
+              <p><b>Tool:</b> Cadence Virtuoso, Cadence Pyxis</p>
+              <ul>
+                <li>Designed common-source amplifier with source degeneration in schematic</li>
+                <li>Analyzed the effect of source degeneration on gain, linearity, and output impedance</li>
+                <li>Performed layout design with attention to matching, parasitic minimization, and design rules</li>
+                <li>Verified schematic vs. post-layout simulation results</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="cv-card" data-aos="fade-up">
+            <div className="cv-card-title">Differential Amplifier – Schematic & Layout</div>
+            <div className="cv-card-date">2026</div>
+            <div className="cv-card-desc">
+              <p><b>Tool:</b> Cadence Virtuoso, Cadence Pyxis</p>
+              <ul>
+                <li>Designed a fully differential amplifier in schematic with current mirror load</li>
+                <li>Analyzed differential gain, common-mode rejection ratio (CMRR), and offset</li>
+                <li>Implemented layout with symmetrical routing, common-centroid technique, and dummy devices</li>
+                <li>Compared pre-layout and post-layout simulation to evaluate parasitic effects</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="cv-card" data-aos="fade-up">
             <div className="cv-card-title">Two-Stage CMOS Op-Amp Design</div>
             <div className="cv-card-date">Jan 2026 - Mar 2026</div>
             <div className="cv-card-desc">
-              <p><b>Tool:</b> Cadence Virtuoso | <b>Technology:</b> TSMC 65nm</p>
+              <p><b>Tool:</b> Cadence Virtuoso</p>
               <ul>
                 <li>Applied differential pair for input stage, current mirror as active load</li>
                 <li>Designed two-stage CMOS operational amplifier achieving open-loop gain of <b>50dB</b></li>
@@ -166,7 +227,7 @@ export default function Home() {
             <div className="cv-card-title">9-Stage Ring Oscillator</div>
             <div className="cv-card-date">Nov 2025 - Dec 2025</div>
             <div className="cv-card-desc">
-              <p><b>Tool:</b> Cadence Virtuoso | <b>Technology:</b> TSMC 65nm</p>
+              <p><b>Tool:</b> Cadence Virtuoso</p>
               <ul>
                 <li>Applied CMOS inverter as delay stage, negative feedback loop for oscillation</li>
                 <li>Designed CMOS ring oscillator with 9 inverter stages achieving <b>20MHz</b> oscillation frequency</li>
@@ -188,53 +249,31 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="cv-card" data-aos="fade-up">
-            <div className="cv-card-title">Traffic Management System (Scrum Master)</div>
-            <div className="cv-card-date">Jan 2025 - Apr 2025</div>
-            <div className="cv-card-desc">
-              <ul>
-                <li>Served as Scrum Master for 4-member team</li>
-                <li>Planned and divided tasks using Word, assigned clear ownership for each member</li>
-                <li>Tracked progress weekly, followed up on deadlines, resolved blockers</li>
-                <li>Communicated between AI team (YOLO vehicle counting) and web team for smooth data integration</li>
-                <li>Reported project status to supervisor and presented final demo</li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="cv-card" data-aos="fade-up">
-            <div className="cv-card-title">Smart Water Sampling System (Scrum Master)</div>
-            <div className="cv-card-date">Sep 2025 - Dec 2025</div>
-            <div className="cv-card-desc">
-              <ul>
-                <li>Acted as Scrum Master for 4-member IoT team</li>
-                <li>Coordinated between Hardware team (ESP32, sensors, relays) and Software team (web dashboard, database, API)</li>
-                <li>Created and managed task lists in Word, assigned roles and tracked progress weekly</li>
-                <li>Facilitated communication to resolve integration issues between hardware and software</li>
-                <li>Held weekly meetings, reviewed progress, adjusted deadlines, solved team conflicts</li>
-              </ul>
-            </div>
-          </div>
-
+          {/* ============ EDUCATION ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-graduation-cap"></i> Education
           </h2>
           <div className="cv-card" data-aos="fade-up">
             <div className="cv-card-title">B.E. in Computer Engineering</div>
             <div className="cv-card-subtitle">University of Science and Technology, Da Nang</div>
-            <div className="cv-card-date">Expected May 2027 • GPA: 3.28/4.0</div>
+            <div className="cv-card-date">Expected May 2027 • GPA: 3.4/4.0</div>
             <div className="cv-card-desc">
-              <p><b>Relevant Coursework:</b> Circuit Theory, Electronic Circuit Techniques, HDL & Programmable Logic</p>
+              <p>
+                <b>Relevant Coursework:</b> Circuit Theory, Electronic Circuit Techniques,
+                HDL & Programmable Logic, <b>IC Design (Thiết kế vi mạch)</b>,
+                <b>PBL4 – IC Design (Thiết kế vi mạch)</b>
+              </p>
             </div>
           </div>
 
+          {/* ============ SKILLS ============ */}
           <h2 className="cv-section-title" data-aos="fade-right">
             <i className="fa-solid fa-code"></i> Skills
           </h2>
           <div className="skills-grid">
             <div className="skill-item" data-aos="fade-up">
               <h4><i className="fa-solid fa-microchip"></i> Analog Design Tools</h4>
-              <p>Cadence Virtuoso, LTspice, Proteus</p>
+              <p>Cadence Virtuoso, Cadence Pyxis, LTspice, Proteus</p>
             </div>
             <div className="skill-item" data-aos="fade-up" data-aos-delay="100">
               <h4><i className="fa-solid fa-code"></i> Programming</h4>
@@ -261,14 +300,14 @@ export default function Home() {
       {modal === 'about' && (
         <Modal title="About Me" onClose={closeModal}>
           <p>
-            Hi, I'm <b>Erwin Dinh</b>, a fourth-year Computer Engineering student at the University of Science and
+            Hi, I'm <b>Erwin Dinh</b>, a fifth-year Computer Engineering student at the University of Science and
             Technology – The University of Danang (DUT), currently working as an <b>Analog IC Design Intern at
             Mixel</b>. I'm passionate about analog semiconductor circuit design, driven by my love for physics and
             my curiosity about how circuits work at the transistor level.
             <br /><br />
-            My focus is on <b>schematic design and layout</b> using Cadence Virtuoso, working with advanced
-            technology nodes like TSMC 65nm, GPDK 90nm, and Skywater 130nm. My goal is to become a professional
-            Analog IC Design Engineer, capable of building complete analog systems from concept to silicon.
+            My focus is on <b>schematic design and layout</b> using <b>Cadence Virtuoso</b> and
+            <b>Cadence Pyxis</b>. My goal is to become a professional Analog IC Design Engineer, capable of
+            building complete analog systems from concept to silicon.
             <br /><br />
             I'm always eager to learn, explore new technologies, and solve challenging problems in the
             semiconductor field.
@@ -279,7 +318,7 @@ export default function Home() {
       {modal === 'skills' && (
         <Modal title="Skills" onClose={closeModal}>
           <p>
-            <b>Analog Design Tools:</b> Cadence Virtuoso, LTspice, Proteus<br /><br />
+            <b>Analog Design Tools:</b> Cadence Virtuoso, Cadence Pyxis, LTspice, Proteus<br /><br />
             <b>Programming:</b> C++, Verilog<br /><br />
             <b>PCB Design:</b> Proteus PCB Layout<br /><br />
             <b>Soft Skills:</b> Team leadership (Scrum Master), Task management & progress tracking, Cross-functional
@@ -293,8 +332,8 @@ export default function Home() {
       {modal === 'services' && (
         <Modal title="Services" onClose={closeModal}>
           <p>
-            I am capable of designing analog IC schematics & layouts using Cadence Virtuoso, simulating circuits
-            with LTspice, designing PCBs with Proteus, and building web applications.
+            I am capable of designing analog IC schematics & layouts using Cadence Virtuoso and Cadence Pyxis,
+            simulating circuits with LTspice, designing PCBs with Proteus, and building web applications.
           </p>
         </Modal>
       )}
@@ -312,8 +351,8 @@ export default function Home() {
                 <br /><br />
                 <b>My Journey:</b><br />
                 I started with basic programming in C++ and web development, then moved into analog circuit design
-                using Proteus and LTspice. Recently, I've been working with Cadence Virtuoso on TSMC 65nm
-                technology.
+                using Proteus and LTspice. Recently, I've been working with Cadence Virtuoso and Cadence Pyxis
+                on analog IC design projects.
                 <br /><br />
                 <b>The Future:</b><br />
                 My goal is to become an Analog IC Design Engineer, contributing to fields like chip design and
@@ -325,12 +364,13 @@ export default function Home() {
               <h3>2: My Journey into Analog IC Design</h3>
               <p>
                 Analog IC design is a beautiful mix of physics and engineering. In this blog, I'll share my
-                experience learning Cadence Virtuoso, from basic schematic entry to complex simulations.
+                experience learning Cadence Virtuoso and Cadence Pyxis, from basic schematic entry to complex
+                simulations and layout design.
                 <br /><br />
                 <b>Key takeaways:</b><br />
                 • Master the fundamentals: small-signal models, biasing, frequency response<br />
                 • Practice with real projects: Op-Amp, Ring Oscillator, Current Mirrors<br />
-                • Learn the tools deeply: Cadence Virtuoso, LTspice<br />
+                • Learn the tools deeply: Cadence Virtuoso, Cadence Pyxis<br />
                 • Never stop learning.
               </p>
             </div>

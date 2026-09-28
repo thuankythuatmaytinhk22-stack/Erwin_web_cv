@@ -52,7 +52,7 @@ export default function Home() {
             Fifth-year Computer Engineering student at University of Science and Technology – Da Nang,
             currently working as an <b>Analog IC Design Intern at Mixel</b>. Strong passion for analog
             semiconductor circuit design with hands-on experience in <b>Cadence Virtuoso</b> and
-            <b>Cadence Pyxis</b> for schematic and layout design.
+            <b> Pyxis</b> for schematic and layout design.
           </p>
 
           <div className="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="600">
@@ -104,7 +104,7 @@ export default function Home() {
           <div className="summary-box" data-aos="fade-up">
             Fifth-year Computer Engineering student at University of Science and Technology – Da Nang with strong
             passion for analog semiconductor circuit design. Solid theoretical foundation combined with hands-on
-            project experience in <b>Cadence Virtuoso</b> and <b>Cadence Pyxis</b>. Currently interning as an
+            project experience in <b>Cadence Virtuoso</b> and <b> Pyxis</b>. Currently interning as an
             Analog IC Design Intern at Mixel, aiming to become a professional Analog IC Design Engineer capable
             of building complete analog systems from concept to silicon.
           </div>
@@ -139,7 +139,7 @@ export default function Home() {
             <div className="cv-card-date">Jun 2026 - Present • Da Nang, Vietnam</div>
             <div className="cv-card-desc">
               <ul>
-                <li>Participated in analog IC design projects using <b>Cadence Virtuoso</b> and <b>Cadence Pyxis</b></li>
+                <li>Participated in analog IC design projects using <b>Cadence Virtuoso</b> and <b> Pyxis</b></li>
                 <li>Performed schematic design, layout design, and circuit simulation under mentor guidance</li>
                 <li>Gained hands-on experience with industrial design flows from schematic to layout verification</li>
                 <li>Collaborated with senior engineers to review and optimize circuit performance</li>
@@ -153,7 +153,7 @@ export default function Home() {
             <div className="cv-card-date">Sep 2025 - Present • Da Nang, Vietnam</div>
             <div className="cv-card-desc">
               <ul>
-                <li>Conduct analog IC design using <b>Cadence Virtuoso</b> and <b>Cadence Pyxis</b></li>
+                <li>Conduct analog IC design using <b>Cadence Virtuoso</b> and <b> Pyxis</b></li>
                 <li>Work on schematic design, layout design, and simulation</li>
                 <li>Collaborate on circuit design projects with other lab members</li>
               </ul>
@@ -182,7 +182,7 @@ export default function Home() {
             <div className="cv-card-title">CS Source Degeneration – Schematic & Layout</div>
             <div className="cv-card-date">2026</div>
             <div className="cv-card-desc">
-              <p><b>Tool:</b> Cadence Virtuoso, Cadence Pyxis</p>
+              <p><b>Tool:</b> Cadence Virtuoso, Pyxis</p>
               <ul>
                 <li>Designed common-source amplifier with source degeneration in schematic</li>
                 <li>Analyzed the effect of source degeneration on gain, linearity, and output impedance</li>
@@ -196,7 +196,7 @@ export default function Home() {
             <div className="cv-card-title">Differential Amplifier – Schematic & Layout</div>
             <div className="cv-card-date">2026</div>
             <div className="cv-card-desc">
-              <p><b>Tool:</b> Cadence Virtuoso, Cadence Pyxis</p>
+              <p><b>Tool:</b> Cadence Virtuoso, Pyxis</p>
               <ul>
                 <li>Designed a fully differential amplifier in schematic with current mirror load</li>
                 <li>Analyzed differential gain, common-mode rejection ratio (CMRR), and offset</li>
@@ -266,7 +266,7 @@ export default function Home() {
           <div className="skills-grid">
             <div className="skill-item" data-aos="fade-up">
               <h4><i className="fa-solid fa-microchip"></i> Analog Design Tools</h4>
-              <p>Cadence Virtuoso, Cadence Pyxis, LTspice, Proteus</p>
+              <p>Cadence Virtuoso, Pyxis, LTspice, Proteus</p>
             </div>
             <div className="skill-item" data-aos="fade-up" data-aos-delay="100">
               <h4><i className="fa-solid fa-code"></i> Programming</h4>
@@ -299,7 +299,7 @@ export default function Home() {
             my curiosity about how circuits work at the transistor level.
             <br /><br />
             My focus is on <b>schematic design and layout</b> using <b>Cadence Virtuoso</b> and
-            <b>Cadence Pyxis</b>. My goal is to become a professional Analog IC Design Engineer, capable of
+            <b> Pyxis</b>. My goal is to become a professional Analog IC Design Engineer, capable of
             building complete analog systems from concept to silicon.
             <br /><br />
             I'm always eager to learn, explore new technologies, and solve challenging problems in the
@@ -311,7 +311,7 @@ export default function Home() {
       {modal === 'skills' && (
         <Modal title="Skills" onClose={closeModal}>
           <p>
-            <b>Analog Design Tools:</b> Cadence Virtuoso, Cadence Pyxis, LTspice, Proteus<br /><br />
+            <b>Analog Design Tools:</b> Cadence Virtuoso, Pyxis, LTspice, Proteus<br /><br />
             <b>Programming:</b> C++, Verilog<br /><br />
             <b>PCB Design:</b> Proteus PCB Layout<br /><br />
             <b>Soft Skills:</b> Team leadership (Scrum Master), Task management & progress tracking, Cross-functional
@@ -325,7 +325,7 @@ export default function Home() {
       {modal === 'services' && (
         <Modal title="Services" onClose={closeModal}>
           <p>
-            I am capable of designing analog IC schematics & layouts using Cadence Virtuoso and Cadence Pyxis,
+            I am capable of designing analog IC schematics & layouts using Cadence Virtuoso and Pyxis,
             simulating circuits with LTspice, designing PCBs with Proteus, and building web applications.
           </p>
         </Modal>
@@ -344,7 +344,7 @@ export default function Home() {
                 <br /><br />
                 <b>My Journey:</b><br />
                 I started with basic programming in C++ and web development, then moved into analog circuit design
-                using Proteus and LTspice. Recently, I've been working with Cadence Virtuoso and Cadence Pyxis
+                using Proteus and LTspice. Recently, I've been working with Cadence Virtuoso and Pyxis
                 on analog IC design projects.
                 <br /><br />
                 <b>The Future:</b><br />
@@ -357,13 +357,13 @@ export default function Home() {
               <h3>2: My Journey into Analog IC Design</h3>
               <p>
                 Analog IC design is a beautiful mix of physics and engineering. In this blog, I'll share my
-                experience learning Cadence Virtuoso and Cadence Pyxis, from basic schematic entry to complex
+                experience learning Cadence Virtuoso and Pyxis, from basic schematic entry to complex
                 simulations and layout design.
                 <br /><br />
                 <b>Key takeaways:</b><br />
                 • Master the fundamentals: small-signal models, biasing, frequency response<br />
                 • Practice with real projects: Op-Amp, Ring Oscillator, Current Mirrors<br />
-                • Learn the tools deeply: Cadence Virtuoso, Cadence Pyxis<br />
+                • Learn the tools deeply: Cadence Virtuoso, Pyxis<br />
                 • Never stop learning.
               </p>
             </div>
